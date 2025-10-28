@@ -1,0 +1,951 @@
+/* 
+ * Dashboard Moderno - MINFIN
+ * Inspirado en diseños de dashboard contemporáneos
+ */
+
+:root {
+    /* Paleta de colores moderna y suave */
+    --primary-color: #4f46e5;      /* Indigo moderno */
+    --primary-light: #6366f1;      /* Indigo claro */
+    --secondary-color: #6b7280;    /* Gris neutro */
+    --success-color: #10b981;      /* Verde esmeralda */
+    --warning-color: #f59e0b;      /* Ámbar */
+    --danger-color: #ef4444;       /* Rojo coral */
+    --info-color: #3b82f6;         /* Azul cielo */
+    
+    /* Colores de fondo suaves */
+    --bg-primary: #f9fafb;         /* Gris muy claro */
+    --bg-white: #ffffff;           /* Blanco puro */
+    --bg-gray-50: #f8fafc;         /* Gris ultra claro */
+    --bg-gray-100: #f1f5f9;        /* Gris claro */
+    --bg-gray-200: #e2e8f0;        /* Gris medio */
+    
+    /* Colores de texto refinados */
+    --text-primary: #0f172a;       /* Negro suave */
+    --text-secondary: #475569;     /* Gris oscuro */
+    --text-muted: #94a3b8;         /* Gris medio */
+    --text-light: #cbd5e1;         /* Gris claro */
+    
+    /* Sombras sutiles y elegantes */
+    --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    
+    /* Bordes y radios */
+    --border-radius: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --border-color: #e2e8f0;
+    --border-color-light: #f1f5f9;
+}
+
+/* Layout principal estilo dashboard */
+.wrap {
+    background: var(--bg-primary) !important;
+    margin: 0 !important;
+    padding: 32px !important;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Header minimalista */
+.page-header {
+    background: transparent;
+    padding: 0 0 32px 0;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.page-header h1 {
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Tarjetas de estadísticas con colores sólidos unificadas */
+.stats-card {
+    border-radius: var(--border-radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.stats-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Contenido unificado para todas las tarjetas - Formato centrado como vacantes */
+.stats-card {
+    text-align: center;
+}
+
+.stats-card .icon-wrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    background: var(--icon-bg, rgba(255, 255, 255, 0.2));
+    color: var(--icon-color, white);
+}
+
+.stats-card .number {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    line-height: 1;
+    color: var(--text-primary, white);
+    letter-spacing: -0.02em;
+}
+
+.stats-card .label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted, rgba(255, 255, 255, 0.9));
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Contenido horizontal para tarjetas con stats-content */
+.stats-card .stats-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+}
+
+.stats-card .stats-content .stats-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stats-card .stats-content .stats-info {
+    flex: 1;
+}
+
+.stats-card .stats-number {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 4px 0;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.stats-card .stats-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Colores sólidos exactos del diseño mostrado */
+.stats-primary {
+    background: linear-gradient(135deg, #4285f4 0%, #1a73e8 100%);
+    color: white;
+    border: none;
+}
+
+.stats-primary .icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.stats-primary .number {
+    color: white;
+}
+
+.stats-primary .label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stats-success {
+    background: linear-gradient(135deg, #0f9d58 0%, #0d8043 100%);
+    color: white;
+    border: none;
+}
+
+.stats-success .icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.stats-success .number {
+    color: white;
+}
+
+.stats-success .label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stats-warning {
+    background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    color: white;
+    border: none;
+}
+
+.stats-warning .icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.stats-warning .number {
+    color: white;
+}
+
+.stats-warning .label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stats-info {
+    background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    color: white;
+    border: none;
+}
+
+.stats-info .icon-wrapper {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.stats-info .number {
+    color: white;
+}
+
+.stats-info .label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Tarjetas con colores sólidos como en la imagen */
+.stats-solid-blue {
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+}
+
+.stats-solid-gray {
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+    color: white;
+    border: none;
+}
+
+.stats-solid-dark {
+    background: linear-gradient(135deg, #4b5563 0%, #374151 100%);
+    color: white;
+    border: none;
+}
+
+.stats-solid-orange {
+    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    color: white;
+    border: none;
+}
+
+/* Tarjetas blancas para estadísticas secundarias */
+.stats-white {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-light);
+}
+
+.stats-white .icon-wrapper {
+    background: var(--bg-gray-50);
+    color: var(--text-secondary);
+}
+
+.stats-white .number {
+    color: var(--text-primary);
+}
+
+.stats-white .label {
+    color: var(--text-muted);
+}
+
+/* Contenido de las tarjetas sólidas */
+.stats-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stats-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+}
+
+.stats-info {
+    flex: 1;
+}
+
+.stats-number {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+    color: white;
+}
+
+.stats-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 4px;
+}
+
+.stats-trend {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+.stats-trend i {
+    margin-right: 4px;
+}
+
+/* Tarjetas blancas pequeñas */
+.stats-white {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color-light);
+    text-align: center;
+}
+
+.stats-white:hover {
+    border-color: var(--border-color);
+}
+
+/* Tabla de datos estilo dashboard limpio */
+.data-table {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color-light);
+}
+
+.data-table .card-header {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding: 20px 24px;
+}
+
+.data-table .card-header h5 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.data-table .search-form {
+    margin: 0;
+}
+
+.data-table .search-form .input-group {
+    background: var(--bg-gray-50);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color-light);
+}
+
+.data-table .search-form .form-control,
+.data-table .search-form .form-select {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.data-table .search-form .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.data-table .search-form .btn {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.data-table .search-form .btn:hover {
+    background: var(--primary-light);
+}
+
+.data-table .table {
+    margin: 0;
+    font-size: 14px;
+}
+
+.data-table .table thead th {
+    background: var(--bg-gray-50);
+    border: none;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 16px 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.data-table .table tbody td {
+    padding: 16px 24px;
+    border-color: var(--border-color-light);
+    vertical-align: middle;
+    font-weight: 400;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.data-table .table tbody tr {
+    transition: all 0.15s ease;
+}
+
+.data-table .table tbody tr:hover {
+    background: var(--bg-gray-50);
+}
+
+.data-table .table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges estilo dashboard moderno */
+.badge {
+    padding: 4px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0;
+    border-radius: 6px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge.bg-success-subtle {
+    background: #ecfdf5 !important;
+    color: #065f46 !important;
+}
+
+.badge.bg-warning-subtle {
+    background: #fffbeb !important;
+    color: #92400e !important;
+}
+
+.badge.bg-info-subtle {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+}
+
+.badge.bg-secondary-subtle {
+    background: #f8fafc !important;
+    color: #475569 !important;
+}
+
+.badge.bg-danger-subtle {
+    background: #fef2f2 !important;
+    color: #991b1b !important;
+}
+
+.badge.bg-primary-subtle {
+    background: #eef2ff !important;
+    color: #3730a3 !important;
+}
+
+/* Botones estilo dashboard limpio */
+.btn {
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    padding: 8px 16px;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    color: white;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--border-color);
+    background: var(--bg-white);
+}
+
+.btn-outline-primary:hover {
+    background: var(--bg-gray-50);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-success {
+    background: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.btn-success:hover {
+    background: #059669;
+    border-color: #059669;
+}
+
+.btn-secondary {
+    background: var(--bg-gray-100);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-gray-200);
+    color: var(--text-primary);
+}
+
+.btn-group .btn {
+    border-radius: var(--border-radius);
+    margin: 0 1px;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.btn-group .btn:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Formularios estilo dashboard */
+.form-card {
+    background: var(--bg-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color-light);
+    overflow: hidden;
+}
+
+.form-card .card-header {
+    background: var(--bg-white);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color-light);
+    padding: 20px 24px;
+}
+
+.form-card .card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-card .card-body {
+    padding: 24px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    font-size: 13px;
+}
+
+.form-control, .form-select {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 10px 12px;
+    transition: all 0.15s ease;
+    font-weight: 400;
+    background: var(--bg-white);
+    font-size: 14px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    outline: none;
+}
+
+.form-text {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* Estado vacío minimalista */
+.empty-state {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.empty-state i {
+    opacity: 0.2;
+    margin-bottom: 16px;
+    color: var(--text-muted);
+}
+
+.empty-state p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+/* Iconos en círculos */
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius);
+}
+
+/* Mejoras adicionales para el estilo dashboard */
+.card {
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-color-light);
+    padding: 16px 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.list-group-item {
+    border-color: var(--border-color-light);
+    padding: 12px 0;
+}
+
+.list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .wrap {
+        padding: 20px !important;
+    }
+    
+    .page-header {
+        padding: 0 0 24px 0;
+        text-align: left;
+    }
+    
+    .page-header h1 {
+        font-size: 24px;
+    }
+    
+    .stats-card {
+        margin-bottom: 16px;
+    }
+    
+    .data-table .card-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch !important;
+    }
+    
+    .data-table .search-form {
+        width: 100%;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .form-card .card-body {
+        padding: 20px;
+    }
+    
+    .data-table .table thead th,
+    .data-table .table tbody td {
+        padding: 12px 16px;
+    }
+}
+
+/* Mejoras adicionales estilo dashboard */
+.table-responsive {
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.notice {
+    border-radius: var(--border-radius);
+    border-left-width: 3px;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 12px 16px;
+}
+
+.notice-success {
+    background: #ecfdf5;
+    border-left-color: var(--success-color);
+    color: #065f46;
+}
+
+.notice-error {
+    background: #fef2f2;
+    border-left-color: var(--danger-color);
+    color: #991b1b;
+}
+
+/* Scrollbar minimalista */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-gray-50);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+/* Animaciones suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Espaciado mejorado */
+.mb-4 {
+    margin-bottom: 24px !important;
+}
+
+.mt-4 {
+    margin-top: 24px !important;
+}
+
+.g-4 > * {
+    padding: 12px;
+}
+
+/* Tipografía refinada */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+small, .small {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Mejoras en inputs */
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}/* E
+stilos para Reportería Avanzada */
+.report-tabs .nav-tabs {
+    border-bottom: 2px solid var(--border-color-light);
+    margin-bottom: 0;
+}
+
+.report-tabs .nav-link {
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 12px 20px;
+    border-radius: 0;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.report-tabs .nav-link:hover {
+    color: var(--primary-color);
+    background: var(--bg-gray-50);
+    border-bottom-color: var(--primary-light);
+}
+
+.report-tabs .nav-link.active {
+    color: var(--primary-color);
+    background: transparent;
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Tabla de efectividad */
+.table-hover tbody tr:hover {
+    background-color: var(--bg-gray-50);
+}
+
+.progress {
+    background-color: var(--bg-gray-200);
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Tarjetas con stats-content para reportes */
+.stats-card .stats-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+}
+
+.stats-card .stats-content .stats-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stats-card .stats-content .stats-info {
+    flex: 1;
+}
+
+.stats-card .stats-number {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0 0 4px 0;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.stats-card .stats-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Animaciones para las pestañas */
+.tab-pane {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
