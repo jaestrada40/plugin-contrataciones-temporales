@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name: Vacantes MINFIN Simple
- * Description: Sistema simple de gestión de vacantes laborales - Réplica del sistema Angular/.NET
- * Version: 1.0.0
- * Author: Ministerio de Finanzas Públicas
+ * Description: Sistema simple de gestión de vacantes laborales - 
+ * Version: 2.0.0
+ * Author: Javier Estrada
  */
 
 // Prevenir acceso directo
